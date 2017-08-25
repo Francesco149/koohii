@@ -1,0 +1,8 @@
+*.class
+*.swp
+*.tar.xz
+*.tar.gz
+*.log
+tags
+*.json
+/test_suite
