@@ -10,6 +10,10 @@ using only java built-ins without any extra dependency.
 it works even on legacy deprecated runtimes such as jamvm (which is
 what I developed it on).
 
+please don't come ask me for more java projects or associate me
+with it. I don't like the language and I was half-memeing with
+this project although it's fully functional.
+
 # usage
 just drop Koohii.java into your project's folder and you are ready
 to go.
