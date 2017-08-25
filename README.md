@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Francesco149/koohii.svg?branch=master)](https://travis-ci.org/Francesco149/koohii)
+
 osu! pp and difficulty calculator. pure java implementation of
 https://github.com/Francesco149/oppai-ng .
 
