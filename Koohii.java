@@ -61,7 +61,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 0;
+public final int VERSION_PATCH = 1;
 
 /** prints a message to stderr. */
 public static
@@ -474,7 +474,7 @@ public static class Parser
             beatmap.ar = Float.parseFloat(setlastpos(p[1]));
         }
         else if (p[0].equals("HPDrainRate")) {
-            beatmap.ar = Float.parseFloat(setlastpos(p[1]));
+            beatmap.hp = Float.parseFloat(setlastpos(p[1]));
         }
         else if (p[0].equals("SliderMultiplier")) {
             beatmap.sv = Float.parseFloat(setlastpos(p[1]));
