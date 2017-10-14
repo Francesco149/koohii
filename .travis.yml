@@ -1,9 +1,10 @@
 language: java
 
+os: linux
+dist: precise
 jdk:
   - oraclejdk8
-  - oraclejdk7
-  - openjdk6
+  - openjdk7
 
 cache:
   directories:
