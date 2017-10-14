@@ -1,4 +1,4 @@
-package org.memes.lolisamurai.koohii;
+package com.github.francesco149.koohii;
 
 import java.util.ArrayList;
 import java.util.Collections;

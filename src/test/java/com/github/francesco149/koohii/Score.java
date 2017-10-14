@@ -1,4 +1,4 @@
-package org.memes.lolisamurai.koohii;
+package com.github.francesco149.koohii;
 
 public class Score {
   public int id, max_combo, n300, n100, n50, nmiss, mods;

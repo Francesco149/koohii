@@ -1,4 +1,4 @@
-package org.memes.lolisamurai.koohii;
+package com.github.francesco149.koohii;
 
 import static org.junit.Assert.assertEquals;
 
