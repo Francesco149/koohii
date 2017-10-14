@@ -16,7 +16,7 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git://github.com/Francesco149/koohii.git</connection>
+		<connection>scm:git:git@github.com:Francesco149/koohii.git</connection>
 		<developerConnection>scm:git:ssh://github.com:Francesco149/koohii.git</developerConnection>
 		<url>http://github.com/Francesco149/koohii/tree/master</url>
 	</scm>
