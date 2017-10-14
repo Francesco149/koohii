@@ -16,9 +16,10 @@
 		</developer>
 	</developers>
 	<scm>
+		<developerConnection>scm:git:git@github.com:Francesco149/koohii.git</developerConnection>
 		<connection>scm:git:git@github.com:Francesco149/koohii.git</connection>
-		<developerConnection>scm:git:ssh://github.com:Francesco149/koohii.git</developerConnection>
-		<url>http://github.com/Francesco149/koohii/tree/master</url>
+		<url>https://github.com/Francesco149/koohii</url>
+		<tag>HEAD</tag>
 	</scm>
 	<licenses>
 		<license>
