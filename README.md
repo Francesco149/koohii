@@ -22,7 +22,7 @@ on a linux system (or git bash for windows) it can be done in two
 commands like so:
 ```sh
 cd my/project
-curl https://raw.githubusercontent.com/Francesco149/koohii/master/Koohii.java > Koohii.java
+curl https://raw.githubusercontent.com/Francesco149/koohii/master/src/main/java/org/memes/lolisamurai/koohii/Koohii.java -O
 ```
 
 for full documentation, read Koohii.java or
