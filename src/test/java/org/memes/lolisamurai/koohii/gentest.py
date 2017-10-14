@@ -221,11 +221,6 @@ for mod in allmods:
 
 
 print('''
-public static class Score
-{
-    public int id, max_combo, n300, n100, n50, nmiss, mods;
-    public double pp;
-}
 
 private static
 void s(int id, int max_combo, int n300, int n100, int n50,

@@ -6,3 +6,7 @@
 tags
 *.json
 /test_suite
+/target/
+/.settings/
+/.classpath
+/.project
