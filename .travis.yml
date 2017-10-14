@@ -6,10 +6,5 @@ jdk:
   - openjdk6
 
 cache:
-    directories:
-        - test_suite
-
-script:
-  - ./download_suite
-  - javac Test.java
-  - java Test
+  directories:
+    - $HOME/.m2/repository
