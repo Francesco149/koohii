@@ -99,6 +99,8 @@
 				<configuration>
 					<tagNameFormat>@{project.version}</tagNameFormat>
 					<releaseProfiles>release-and-sign</releaseProfiles>
+					<useReleaseProfile>false</useReleaseProfile>
+					<goal>deploy</goal>
 				</configuration>
 			</plugin>
 
