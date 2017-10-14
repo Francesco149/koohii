@@ -5,6 +5,28 @@
 	<artifactId>koohii</artifactId>
 	<version>1.0.1</version>
 
+	<name>koohii</name>
+	<description>osu! pp and difficulty calculator, pure java implementation of https://github.com/Francesco149/oppai-ng</description>
+	<url>https://github.com/Francesco149/koohii</url>
+	<developers>
+		<developer>
+			<name>Franc[e]sco</name>
+			<email>lolisamurai@tfwno.gf</email>
+			<url>https://github.com/Francesco149</url>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git://github.com/Francesco149/koohii.git</connection>
+		<developerConnection>scm:git:ssh://github.com:Francesco149/koohii.git</developerConnection>
+		<url>http://github.com/Francesco149/koohii/tree/master</url>
+	</scm>
+	<licenses>
+		<license>
+			<name>Public domain (Unlicense)</name>
+			<url>http://unlicense.org</url>
+		</license>
+	</licenses>
+
 	<build>
 		<testResources>
 			<testResource>
