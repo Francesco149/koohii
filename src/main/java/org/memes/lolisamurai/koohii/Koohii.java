@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 1;
+public final int VERSION_PATCH = 2;
 
 /** prints a message to stderr. */
 public static
