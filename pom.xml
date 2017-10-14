@@ -4,6 +4,7 @@
 	<groupId>org.memes.lolisamurai</groupId>
 	<artifactId>koohii</artifactId>
 	<version>1.0.2-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<name>koohii</name>
 	<description>osu! pp and difficulty calculator, pure java implementation of https://github.com/Francesco149/oppai-ng</description>
