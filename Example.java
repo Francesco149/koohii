@@ -1,5 +1,8 @@
+package com.example;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import com.github.francesco149.koohii.*;
 
 class Example {
 

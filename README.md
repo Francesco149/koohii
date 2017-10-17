@@ -39,8 +39,11 @@ and I will add instructions.
 
 # example
 ```java
+package com.example;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import com.github.francesco149.koohii.*;
 
 class Example {
 
@@ -66,8 +69,9 @@ void main(String[] args) throws java.io.IOException
 ```
 
 ```
-javac Example.java
-cat /path/to/file.osu | java Example
+javac -d . Koohii.java
+javac -d . Example.java
+cat /path/to/file.osu | java com.example.Example
 ```
 
 old compilers might require ```-1.5``` to properly build this.
