@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Francesco149/koohii.svg?branch=master)](https://travis-ci.org/Francesco149/koohii)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.francesco149/koohii/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.francesco149/koohii)
 
 osu! pp and difficulty calculator. pure java implementation of
 https://github.com/Francesco149/oppai-ng .
@@ -36,6 +37,18 @@ to generate HTML documentation.
 If you know any plain text javadoc generator or anything that can
 be browsed without a GUI or third party software please let me know
 and I will add instructions.
+
+if you prefer using maven, koohii is now also available on
+maven central, add this to the ```<dependencies>``` section of your
+```pom.xml```:
+
+```xml
+    <dependency>
+      <groupId>com.github.francesco149</groupId>
+      <artifactId>koohii</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+```
 
 # example
 ```java
