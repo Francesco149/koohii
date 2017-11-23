@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 2;
+public final int VERSION_PATCH = 3;
 
 /** prints a message to stderr. */
 public static
@@ -114,6 +114,7 @@ public static class Vector2
 /* ------------------------------------------------------------- */
 /* beatmap utils                                                 */
 
+public static final String OSU_MAGIC = "osu file format v";
 public static final int MODE_STD = 0;
 
 public static class Circle
@@ -205,6 +206,7 @@ public static class Timing
 */
 public static class Map
 {
+    public int format_version;
     public int mode;
     public String title, title_unicode;
     public String artist, artist_unicode;
@@ -313,6 +315,9 @@ public static class Map
                 }
 
                 px_per_beat = sv * 100.0 * sv_multiplier;
+                if (format_version < 8) {
+                    px_per_beat /= sv_multiplier;
+                }
             }
 
             /* slider, we need to calculate slider ticks */
@@ -553,12 +558,29 @@ public static class Parser
     public Map map(BufferedReader reader) throws IOException
     {
         String line = null;
+        int magic_index = -1;
 
         if (beatmap == null) {
             beatmap = new Map();
         }
 
         reset();
+
+        /* check for the magic string and parse format version */
+        line = reader.readLine();
+        if (line == null) {
+            throw new IllegalArgumentException("empty file");
+        }
+        magic_index = line.indexOf(OSU_MAGIC);
+        if (magic_index < 0) {
+            throw new IllegalArgumentException(
+                "not a valid .osu file"
+            );
+        }
+
+        beatmap.format_version = Integer.parseInt(
+            line.substring(magic_index + OSU_MAGIC.length())
+        );
 
         while ((line = reader.readLine()) != null)
         {
