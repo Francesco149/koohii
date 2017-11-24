@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 3;
+public final int VERSION_PATCH = 4;
 
 /** prints a message to stderr. */
 public static
@@ -1161,7 +1161,7 @@ public static class DiffCalc
                 continue;
             }
 
-            double interval = (obj.time - prev.time) / speed;
+            double interval = (obj.time - prev.time) / speed_mul;
 
             if (interval >= singletap_threshold) {
                 ++nsingles_threshold;
