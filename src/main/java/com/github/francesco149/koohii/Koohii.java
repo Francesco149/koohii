@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 5;
+public final int VERSION_PATCH = 6;
 
 /** prints a message to stderr. */
 public static
@@ -701,6 +701,55 @@ String mods_str(int mods)
     }
 
     return sb.toString();
+}
+
+/** @return mod bitmask from the string representation */
+public static
+int mods_from_str(String str)
+{
+    int mask = 0;
+
+    if (str.indexOf("NF") >= 0) {
+        mask |= MODS_NF;
+    }
+
+    if (str.indexOf("EZ") >= 0) {
+        mask |= MODS_EZ;
+    }
+
+    if (str.indexOf("TD") >= 0) {
+        mask |= MODS_TOUCH_DEVICE;
+    }
+
+    if (str.indexOf("HD") >= 0) {
+        mask |= MODS_HD;
+    }
+
+    if (str.indexOf("HR") >= 0) {
+        mask |= MODS_HR;
+    }
+
+    if (str.indexOf("DT") >= 0) {
+        mask |= MODS_DT;
+    }
+
+    if (str.indexOf("HT") >= 0) {
+        mask |= MODS_HT;
+    }
+
+    if (str.indexOf("NC") >= 0) {
+        mask |= MODS_NC;
+    }
+
+    if (str.indexOf("FL") >= 0) {
+        mask |= MODS_FL;
+    }
+
+    if (str.indexOf("SO") >= 0) {
+        mask |= MODS_SO;
+    }
+
+    return mask;
 }
 
 /**
