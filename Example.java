@@ -15,13 +15,13 @@ void main(String[] args) throws java.io.IOException
 
     Koohii.Map beatmap = new Koohii.Parser().map(stdin);
     Koohii.DiffCalc stars = new Koohii.DiffCalc().calc(beatmap);
-    System.out.printf("%s stars\n", stars.total);
+    System.out.println(stars);
 
     Koohii.PPv2 pp = new Koohii.PPv2(
         stars.aim, stars.speed, beatmap
     );
 
-    System.out.printf("%s pp\n", pp.total);
+    System.out.println(pp);
 }
 
 }
