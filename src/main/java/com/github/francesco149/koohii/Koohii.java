@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 6;
+public final int VERSION_PATCH = 7;
 
 /** prints a message to stderr. */
 public static
@@ -1428,40 +1428,40 @@ public static class PPv2Parameters
     * if not null, max_combo, nsliders, ncircles, nobjects,
     * base_ar, base_od will be obtained from this beatmap.
     */
-    Map beatmap = null;
+    public Map beatmap = null;
 
-    double aim_stars = 0.0;
-    double speed_stars = 0.0;
-    int max_combo = 0;
-    int nsliders = 0, ncircles = 0, nobjects = 0;
+    public double aim_stars = 0.0;
+    public double speed_stars = 0.0;
+    public int max_combo = 0;
+    public int nsliders = 0, ncircles = 0, nobjects = 0;
 
     /** the base AR (before applying mods). */
-    float base_ar = 5.0f;
+    public float base_ar = 5.0f;
 
     /** the base OD (before applying mods). */
-    float base_od = 5.0f;
+    public float base_od = 5.0f;
 
     /** gamemode. */
-    int mode = MODE_STD;
+    public int mode = MODE_STD;
 
     /** the mods bitmask, same as osu! api, see MODS_* constants */
-    int mods = MODS_NOMOD;
+    public int mods = MODS_NOMOD;
 
     /**
     * the maximum combo achieved, if -1 it will default to
     * max_combo - nmiss .
     */
-    int combo = -1;
+    public int combo = -1;
 
     /**
     * number of 300s, if -1 it will default to
     * nobjects - n100 - n50 - nmiss .
     */
-    int n300 = -1;
-    int n100 = 0, n50 = 0, nmiss = 0;
+    public int n300 = -1;
+    public int n100 = 0, n50 = 0, nmiss = 0;
 
     /** scorev1 (1) or scorev2 (2). */
-    int score_version = 1;
+    public int score_version = 1;
 }
 
 public static class PPv2
