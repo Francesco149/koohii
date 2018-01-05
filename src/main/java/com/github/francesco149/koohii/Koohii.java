@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 9;
+public final int VERSION_PATCH = 10;
 
 /** prints a message to stderr. */
 public static
@@ -713,44 +713,23 @@ int mods_from_str(String str)
 {
     int mask = 0;
 
-    if (str.indexOf("NF") >= 0) {
-        mask |= MODS_NF;
-    }
-
-    if (str.indexOf("EZ") >= 0) {
-        mask |= MODS_EZ;
-    }
-
-    if (str.indexOf("TD") >= 0) {
-        mask |= MODS_TOUCH_DEVICE;
-    }
-
-    if (str.indexOf("HD") >= 0) {
-        mask |= MODS_HD;
-    }
-
-    if (str.indexOf("HR") >= 0) {
-        mask |= MODS_HR;
-    }
-
-    if (str.indexOf("DT") >= 0) {
-        mask |= MODS_DT;
-    }
-
-    if (str.indexOf("HT") >= 0) {
-        mask |= MODS_HT;
-    }
-
-    if (str.indexOf("NC") >= 0) {
-        mask |= MODS_NC;
-    }
-
-    if (str.indexOf("FL") >= 0) {
-        mask |= MODS_FL;
-    }
-
-    if (str.indexOf("SO") >= 0) {
-        mask |= MODS_SO;
+    while (str.length() > 0)
+    {
+        if (str.startsWith("NF")) mask |= MODS_NF;
+        else if (str.startsWith("EZ")) mask |= MODS_EZ;
+        else if (str.startsWith("TD")) mask |= MODS_TOUCH_DEVICE;
+        else if (str.startsWith("HD")) mask |= MODS_HD;
+        else if (str.startsWith("HR")) mask |= MODS_HR;
+        else if (str.startsWith("DT")) mask |= MODS_DT;
+        else if (str.startsWith("HT")) mask |= MODS_HT;
+        else if (str.startsWith("NC")) mask |= MODS_NC;
+        else if (str.startsWith("FL")) mask |= MODS_FL;
+        else if (str.startsWith("SO")) mask |= MODS_SO;
+        else {
+            str = str.substring(1);
+            continue;
+        }
+        str = str.substring(2);
     }
 
     return mask;
