@@ -52,6 +52,13 @@ void main(String[] args) throws java.io.IOException
 
     Koohii.Map beatmap = new Koohii.Parser().map(stdin);
 
+    System.out.printf("%s - %s [%s] +%s\n",
+        beatmap.artist, beatmap.title, beatmap.version,
+        Koohii.mods_str(mods));
+
+    System.out.printf("OD%g AR%g CS%g HP%g\n", beatmap.od,
+        beatmap.ar, beatmap.cs, beatmap.hp);
+
     /* calculate star rating */
     Koohii.DiffCalc stars =
         new Koohii.DiffCalc().calc(beatmap, mods);
