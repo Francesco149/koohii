@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 10;
+public final int VERSION_PATCH = 11;
 
 /** prints a message to stderr. */
 public static
@@ -114,7 +114,6 @@ public static class Vector2
 /* ------------------------------------------------------------- */
 /* beatmap utils                                                 */
 
-public static final String OSU_MAGIC = "osu file format v";
 public static final int MODE_STD = 0;
 
 public static class Circle
@@ -560,29 +559,12 @@ public static class Parser
     public Map map(BufferedReader reader) throws IOException
     {
         String line = null;
-        int magic_index = -1;
 
         if (beatmap == null) {
             beatmap = new Map();
         }
 
         reset();
-
-        /* check for the magic string and parse format version */
-        line = reader.readLine();
-        if (line == null) {
-            throw new IllegalArgumentException("empty file");
-        }
-        magic_index = line.indexOf(OSU_MAGIC);
-        if (magic_index < 0) {
-            throw new IllegalArgumentException(
-                "not a valid .osu file"
-            );
-        }
-
-        beatmap.format_version = Integer.parseInt(
-            line.substring(magic_index + OSU_MAGIC.length())
-        );
 
         while ((line = reader.readLine()) != null)
         {
@@ -615,6 +597,16 @@ public static class Parser
             else if (section.equals("Difficulty")) difficulty();
             else if (section.equals("TimingPoints")) timing();
             else if (section.equals("HitObjects")) objects();
+            else {
+                int fmt_index = line.indexOf("file format v");
+                if (fmt_index < 0) {
+                    continue;
+                }
+
+                beatmap.format_version = Integer.parseInt(
+                    line.substring(fmt_index + 13)
+                );
+            }
         }
 
         if (!ar_found) {
