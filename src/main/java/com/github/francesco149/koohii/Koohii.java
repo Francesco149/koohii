@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 8;
+public final int VERSION_PATCH = 9;
 
 /** prints a message to stderr. */
 public static
@@ -686,16 +686,14 @@ String mods_str(int mods)
         sb.append("HR");
     }
 
-    if ((mods & MODS_DT) != 0) {
+    if ((mods & MODS_NC) != 0) {
+        sb.append("NC");
+    } else if ((mods & MODS_DT) != 0) {
         sb.append("DT");
     }
 
     if ((mods & MODS_HT) != 0) {
         sb.append("HT");
-    }
-
-    if ((mods & MODS_NC) != 0) {
-        sb.append("NC");
     }
 
     if ((mods & MODS_FL) != 0) {
