@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 7;
+public final int VERSION_PATCH = 8;
 
 /** prints a message to stderr. */
 public static
@@ -372,6 +372,7 @@ public static class Parser
     public Map beatmap = null;
 
     private String section; /* current section */
+    private boolean ar_found = false;
 
     public Parser() { reset(); }
 
@@ -479,6 +480,7 @@ public static class Parser
         }
         else if (p[0].equals("ApproachRate")) {
             beatmap.ar = Float.parseFloat(setlastpos(p[1]));
+            ar_found = true;
         }
         else if (p[0].equals("HPDrainRate")) {
             beatmap.hp = Float.parseFloat(setlastpos(p[1]));
@@ -613,6 +615,10 @@ public static class Parser
             else if (section.equals("Difficulty")) difficulty();
             else if (section.equals("TimingPoints")) timing();
             else if (section.equals("HitObjects")) objects();
+        }
+
+        if (!ar_found) {
+            beatmap.ar = beatmap.od;
         }
 
         done = true;
