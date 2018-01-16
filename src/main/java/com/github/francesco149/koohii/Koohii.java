@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 11;
+public final int VERSION_PATCH = 12;
 
 /** prints a message to stderr. */
 public static
@@ -592,20 +592,34 @@ public static class Parser
                 continue;
             }
 
-            if (section.equals("Metadata")) metadata();
-            else if (section.equals("General")) general();
-            else if (section.equals("Difficulty")) difficulty();
-            else if (section.equals("TimingPoints")) timing();
-            else if (section.equals("HitObjects")) objects();
-            else {
-                int fmt_index = line.indexOf("file format v");
-                if (fmt_index < 0) {
-                    continue;
-                }
+            try
+            {
+                if (section.equals("Metadata"))
+                    metadata();
+                else if (section.equals("General"))
+                    general();
+                else if (section.equals("Difficulty"))
+                    difficulty();
+                else if (section.equals("TimingPoints"))
+                    timing();
+                else if (section.equals("HitObjects"))
+                    objects();
+                else {
+                    int fmt_index = line.indexOf("file format v");
+                    if (fmt_index < 0) {
+                        continue;
+                    }
 
-                beatmap.format_version = Integer.parseInt(
-                    line.substring(fmt_index + 13)
-                );
+                    beatmap.format_version = Integer.parseInt(
+                        line.substring(fmt_index + 13)
+                    );
+                }
+            }
+
+            catch (NumberFormatException e) {
+                warn("ignoring line with bad number");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                warn("ignoring malformed line");
             }
         }
 
