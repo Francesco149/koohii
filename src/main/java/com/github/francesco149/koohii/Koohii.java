@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
 * pure java implementation of github.com/Francesco149/oppai-ng .
 *
-* <p><blockquote><pre>
+* <blockquote><pre>
 * this is meant to be a single file library that's as portable and
 * easy to set up as possible for java projects that need
 * pp/difficulty calculation.
@@ -53,7 +53,7 @@ import java.io.IOException;
 * public domain.
 *
 * refer to the attached UNLICENSE or http://unlicense.org/
-* </pre></blockquote></p>
+* </pre></blockquote>
 *
 * @author Franc[e]sco (lolisamurai@tfwno.gf)
 */
@@ -776,12 +776,12 @@ private static final int APPLY_HP = 1<<3;
 /**
 * applies mods to mapstats.
 *
-* <p><blockquote><pre>
+* <blockquote><pre>
 * Koohii.MapStats mapstats = new Koohii.MapStats();
 * mapstats.ar = 9;
 * Koohii.mods_apply(Koohii.MODS_DT, mapstats, Koohii.APPLY_AR);
 * // mapstats.ar is now 10.33, mapstats.speed is 1.5
-* </pre></blockquote></p>
+* </pre></blockquote>
 *
 * @param mapstats the base beatmap stats
 * @param flags bitmask that specifies which stats to modify. only
