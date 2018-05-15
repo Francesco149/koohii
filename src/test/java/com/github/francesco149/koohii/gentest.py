@@ -133,7 +133,7 @@ def gen_modstr(bitmask):
     mods = []
 
     allmods = {
-        (1<< 0, 'nf'), (1<< 1, 'ez'), (1<< 3, 'hd'),
+        (1<< 0, 'nf'), (1<< 1, 'ez'), (1<< 2, 'td'), (1<< 3, 'hd'),
         (1<< 4, 'hr'), (1<< 6, 'dt'), (1<< 8, 'ht'),
         (1<< 9, 'nc'), (1<<10, 'fl'), (1<<12, 'so')
     }
@@ -210,7 +210,7 @@ print('')
 
 # make code a little nicer by shortening mods
 allmods = {
-    'nf', 'ez', 'hd', 'hr', 'dt', 'ht', 'nc', 'fl', 'so', 'nomod'
+    'nf', 'ez', 'td', 'hd', 'hr', 'dt', 'ht', 'nc', 'fl', 'so', 'nomod'
 }
 
 for mod in allmods:
