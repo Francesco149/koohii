@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 14;
+public final int VERSION_PATCH = 15;
 
 /** prints a message to stderr. */
 public static
@@ -1024,9 +1024,9 @@ public static class DiffCalc
     * must be set or passed to calc() explicitly.
     * persists across calc() calls unless it's changed or explicity
     * passed to calc()
-    * @see DiffCalc#calc(Map, int, double)
-    * @see DiffCalc#calc(Map, int)
-    * @see DiffCalc#calc(Map)
+    * @see DiffCalc#calc(Koohii.Map, int, double)
+    * @see DiffCalc#calc(Koohii.Map, int)
+    * @see DiffCalc#calc(Koohii.Map)
     */
     public Map beatmap = null;
 
@@ -1410,7 +1410,7 @@ double pp_base(double stars)
 * parameters to be passed to PPv2.
 * aim_stars, speed_stars, max_combo, nsliders, ncircles, nobjects,
 * base_ar, base_od are required.
-* @see PPv2#PPv2(PPv2Parameters)
+* @see PPv2#PPv2(Koohii.PPv2Parameters)
 */
 public static class PPv2Parameters
 {
@@ -1646,7 +1646,7 @@ public static class PPv2
 
     /**
     * simplest possible call, calculates ppv2 for SS scorev1.
-    * @see PPv2#PPv2(PPv2Parameters)
+    * @see PPv2#PPv2(Koohii.PPv2Parameters)
     */
     public PPv2(double aim_stars, double speed_stars, Map b)
     {
