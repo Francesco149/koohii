@@ -23,7 +23,7 @@ try:
 except ImportError:
     import urllib.parse as urllib
 
-''' ----------------------------------------------------------- '''
+# -------------------------------------------------------------------------
 
 parser = argparse.ArgumentParser(
     description = (
@@ -63,14 +63,14 @@ args = parser.parse_args()
 if args.key == None and "OSU_API_KEY" in os.environ:
     args.key = os.environ["OSU_API_KEY"]
 
-''' ----------------------------------------------------------- '''
+# -------------------------------------------------------------------------
 
 osu_treset = time.time() + 60
 osu_ncalls = 0
 
 def osu_get(conn, endpoint, paramsdict=None):
-    '''GETs /api/endpoint?paramsdict&k=args.key from conn.
-    return json object, exits process on api errors'''
+    # GETs /api/endpoint?paramsdict&k=args.key from conn.
+    # return json object, exits process on api errors
     global osu_treset, osu_ncalls, args
 
     sys.stderr.write("%s %s\n" % (endpoint, str(paramsdict)))
@@ -118,10 +118,8 @@ def osu_get(conn, endpoint, paramsdict=None):
             sys.stderr.write("%s\n" % (traceback.format_exc()))
 
             try:
-                '''
-                prevents exceptions on next request if the
-                response wasn't previously read due to errors
-                '''
+                # prevents exceptions on next request if the
+                # response wasn't previously read due to errors
                 conn.getresponse().read()
 
             except httplib.HTTPException:
@@ -131,7 +129,7 @@ def osu_get(conn, endpoint, paramsdict=None):
 
 
 def gen_modstr(bitmask):
-    '''generates code for a mod combination's bitmask'''
+    # generates code for a mod combination's bitmask
     mods = []
 
     allmods = {
@@ -149,7 +147,7 @@ def gen_modstr(bitmask):
 
     return " | ".join(mods)
 
-''' ----------------------------------------------------------- '''
+# -------------------------------------------------------------------------
 
 if args.key == None:
     sys.stderr.write(
