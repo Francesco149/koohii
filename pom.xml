@@ -118,9 +118,9 @@
 							<goal>wget</goal>
 						</goals>
 						<configuration>
-							<url>http://www.hnng.moe/f/VI7</url>
+							<url>http://www.hnng.moe/stuff/test_suite_20180515.tgzarubaisretarded</url>
 							<outputFileName>test_suite.tar.gz</outputFileName>
-							<sha512>17cac1f949cc1ff0df48819e303837baf0003d2cdce59ae4d92ebc734ccce1085212d8acf5cb2ff3ba63b39a86bfa8397f64d4ce945542308033d58f515647ac</sha512>
+							<sha512>6a0e936d06ab04e29a86d4bd77c1e03020ea64c0e441307c21269720ce56f27bfc6da9e5ae6aa2fb8ee412fb37645ab344a1bb820dbe19bce911e8c1c2507b33</sha512>
 							<outputDirectory>${project.build.directory}/generated-test-resources</outputDirectory>
 							<unpack>true</unpack>
 						</configuration>
