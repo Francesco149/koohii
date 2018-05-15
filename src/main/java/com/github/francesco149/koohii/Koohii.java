@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 13;
+public final int VERSION_PATCH = 14;
 
 /** prints a message to stderr. */
 public static
@@ -652,6 +652,7 @@ public static final int MODS_NOMOD = 0;
 public static final int MODS_NF = 1<<0;
 public static final int MODS_EZ = 1<<1;
 public static final int MODS_TOUCH_DEVICE = 1<<2;
+public static final int MODS_TD = MODS_TOUCH_DEVICE;
 public static final int MODS_HD = 1<<3;
 public static final int MODS_HR = 1<<4;
 public static final int MODS_DT = 1<<6;
