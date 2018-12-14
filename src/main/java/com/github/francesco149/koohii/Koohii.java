@@ -62,8 +62,8 @@ public final class Koohii {
 private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
-public final int VERSION_MINOR = 0;
-public final int VERSION_PATCH = 15;
+public final int VERSION_MINOR = 1;
+public final int VERSION_PATCH = 0;
 
 /** prints a message to stderr. */
 public static
@@ -1581,7 +1581,14 @@ public static class PPv2
         }
 
         if ((mods & MODS_FL) != 0) {
-            aim *= 1.45 * length_bonus;
+            double fl_bonus = 1.0 + 0.35 * Math.min(1.0, nobjects / 200.0);
+            if (nobjects > 200) {
+                fl_bonus += 0.3 * Math.min(1.0, (nobjects - 200) / 300.0);
+            }
+            if (nobjects > 500) {
+                fl_bonus += (nobjects - 500) / 1200.0;
+            }
+            aim *= fl_bonus;
         }
 
         double acc_bonus = 0.5 + accuracy / 2.0;
