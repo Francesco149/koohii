@@ -1558,15 +1558,8 @@ public static class PPv2
             ar_bonus += 0.3 * (mapstats.ar - 10.33);
         }
 
-        else if (mapstats.ar < 8.0)
-        {
-            double low_ar_bonus = 0.01 * (8.0 - mapstats.ar);
-
-            if ((mods & MODS_HD) != 0) {
-                low_ar_bonus *= 2.0;
-            }
-
-            ar_bonus += low_ar_bonus;
+        else if (mapstats.ar < 8.0) {
+            ar_bonus +=  0.01 * (8.0 - mapstats.ar);
         }
 
         /* aim pp ---------------------------------------------- */
@@ -1576,9 +1569,11 @@ public static class PPv2
         aim *= combo_break;
         aim *= ar_bonus;
 
+        double hd_bonus = 1.0;
         if ((mods & MODS_HD) != 0) {
-            aim *= 1.02 + (11 - mapstats.ar) / 50;
+            hd_bonus *= 1.0 + 0.04 * (12.0 - mapstats.ar);
         }
+        aim *= hd_bonus;
 
         if ((mods & MODS_FL) != 0) {
             double fl_bonus = 1.0 + 0.35 * Math.min(1.0, nobjects / 200.0);
@@ -1604,10 +1599,7 @@ public static class PPv2
         speed *= miss_penality;
         speed *= combo_break;
         speed *= ar_bonus;
-
-        if ((mods & MODS_HD) != 0) {
-            speed *= 1.18;
-        }
+        speed *= hd_bonus;
 
         /* scale speed with acc and od */
         double acc_od_bonus = 1.0 / (1.0 +
