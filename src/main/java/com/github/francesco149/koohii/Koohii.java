@@ -1555,7 +1555,7 @@ public static class PPv2
         double ar_bonus = 1.0;
 
         if (mapstats.ar > 10.33) {
-            ar_bonus += 0.45 * (mapstats.ar - 10.33);
+            ar_bonus += 0.3 * (mapstats.ar - 10.33);
         }
 
         else if (mapstats.ar < 8.0)
@@ -1605,6 +1605,7 @@ public static class PPv2
         speed *= combo_break;
         speed *= acc_bonus;
         speed *= od_bonus;
+        speed *= ar_bonus;
 
         if ((mods & MODS_HD) != 0) {
             speed *= 1.18;
