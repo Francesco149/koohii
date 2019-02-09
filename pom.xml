@@ -118,9 +118,9 @@
 							<goal>wget</goal>
 						</goals>
 						<configuration>
-							<url>http://www.hnng.moe/stuff/test_suite_20180515.tgzarubaisretarded</url>
+							<url>https://github.com/Francesco149/oppai-ng/releases/download/2.2.0/test_suite_2019-02-09.tar.gz</url>
 							<outputFileName>test_suite.tar.gz</outputFileName>
-							<sha512>6a0e936d06ab04e29a86d4bd77c1e03020ea64c0e441307c21269720ce56f27bfc6da9e5ae6aa2fb8ee412fb37645ab344a1bb820dbe19bce911e8c1c2507b33</sha512>
+							<sha512>e0deaef0b01a7602809748c1b3ee0e8faadd0729b6ace1aa5bc99cf3803fff49eb4ff740975537b0f54714a3d40867a94b357962e359dc859ced51381646ad0d</sha512>
 							<outputDirectory>${project.build.directory}/generated-test-resources</outputDirectory>
 							<unpack>true</unpack>
 						</configuration>
