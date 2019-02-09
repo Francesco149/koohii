@@ -26,10 +26,10 @@ public class VersusScoresTest {
   }
 
   /**
-   * pp can be off by +- 2%. margin is actually 3x for under 100pp, 2x for 100-200, 1.5x for
+   * pp can be off by +- 6%. margin is actually 3x for under 100pp, 2x for 100-200, 1.5x for
    * 200-300.
    */
-  private static final double ERROR_MARGIN = 0.02;
+  private static final double ERROR_MARGIN = 0.06;
 
   private final Score expected;
 
