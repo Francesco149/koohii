@@ -968,7 +968,7 @@ double d_spacing_weight(int type, double distance, double delta_time,
                 Math.pow((MIN_SPEED_BONUS - delta_time) / 40.0, 2);
           }
           angle_bonus = 1.0;
-          if (!Double.isNaN(angle)) {
+          if (!Double.isNaN(angle) && angle < SPEED_ANGLE_BONUS_BEGIN) {
               double s = Math.sin(1.5 * (SPEED_ANGLE_BONUS_BEGIN - angle));
               angle_bonus += Math.pow(s, 2) / 3.57;
               if (angle < Math.PI / 2.0) {
