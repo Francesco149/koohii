@@ -1708,7 +1708,7 @@ public static class PPv2
         acc *= Math.min(1.15, Math.pow(ncircles / 1000.0, 0.3));
 
         if ((mods & MODS_HD) != 0) {
-            acc *= 1.02;
+            acc *= 1.08;
         }
 
         if ((mods & MODS_FL) != 0) {
