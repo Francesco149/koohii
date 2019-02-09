@@ -4,7 +4,7 @@ os: linux
 dist: precise
 jdk:
   - oraclejdk8
-  - openjdk8
+  - openjdk9
 
 cache:
   directories:
