@@ -1696,12 +1696,9 @@ public static class PPv2
         }
         speed *= hd_bonus;
 
-        /* scale speed with acc and od */
-        double acc_od_bonus = 1.0 / (1.0 +
-            Math.exp(-20.0 * (accuracy + od_squared / 2310.0 - 0.8733))
-        ) / 1.89;
-        acc_od_bonus += od_squared / 5000.0 + 0.49;
-        speed *= acc_od_bonus;
+        /* similar to aim acc and od bonus */
+        speed *= 0.02 + accuracy;
+        speed *= 0.96 + od_squared / 1600.0;
 
         /* acc pp ---------------------------------------------- */
         acc = Math.pow(1.52163, mapstats.od) *
