@@ -62,7 +62,7 @@ public final class Koohii {
 private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
-public final int VERSION_MINOR = 1;
+public final int VERSION_MINOR = 2;
 public final int VERSION_PATCH = 0;
 
 /** prints a message to stderr. */
@@ -764,8 +764,8 @@ public static class MapStats
     float speed;
 }
 
-private static final double OD0_MS = 79.5;
-private static final double OD10_MS = 19.5;
+private static final double OD0_MS = 80;
+private static final double OD10_MS = 20;
 private static final double AR0_MS = 1800.0;
 private static final double AR5_MS = 1200.0;
 private static final double AR10_MS = 450.0;
