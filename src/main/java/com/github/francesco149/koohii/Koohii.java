@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 2;
-public final int VERSION_PATCH = 0;
+public final int VERSION_PATCH = 1;
 
 /** prints a message to stderr. */
 public static
@@ -1121,7 +1121,12 @@ public static class DiffCalc
         strains.clear();
 
         double strain_step = STRAIN_STEP * speed_mul;
-        double interval_end = strain_step;
+        /* the first object doesn't generate a strain
+         * so we begin with an incremented interval end */
+        double interval_end = (
+          Math.ceil(beatmap.objects.get(0).time / strain_step)
+          * strain_step
+        );
         double max_strain = 0.0;
 
         /* calculate all strains */
@@ -1158,6 +1163,9 @@ public static class DiffCalc
 
             max_strain = Math.max(max_strain, obj.strains[type]);
         }
+
+        /* don't forget to add the last strain interval */
+        strains.add(max_strain);
 
         /* weigh the top strains sorted from highest to lowest */
         double weight = 1.0;
