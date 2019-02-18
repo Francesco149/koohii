@@ -63,7 +63,7 @@ private Koohii() {}
 
 public final int VERSION_MAJOR = 1;
 public final int VERSION_MINOR = 2;
-public final int VERSION_PATCH = 1;
+public final int VERSION_PATCH = 2;
 
 /** prints a message to stderr. */
 public static
@@ -976,11 +976,11 @@ double d_spacing_weight(int type, double distance, double delta_time,
                   if (distance < ANGLE_BONUS_SCALE && angle < Math.PI / 4.0) {
                       angle_bonus += (1.0 - angle_bonus) *
                           Math.min((ANGLE_BONUS_SCALE - distance) / 10.0, 1.0);
+                  } else if (distance < ANGLE_BONUS_SCALE) {
+                      angle_bonus += (1.0 - angle_bonus) *
+                          Math.min((ANGLE_BONUS_SCALE - distance) / 10.0, 1.0) *
+                          Math.sin((Math.PI / 2.0 - angle) * 4.0 / Math.PI);
                   }
-              } else if (distance < ANGLE_BONUS_SCALE) {
-                  angle_bonus += (1.0 - angle_bonus) *
-                      Math.min((ANGLE_BONUS_SCALE - distance) / 10.0, 1.0) *
-                      Math.sin((Math.PI / 2.0 - angle) * 4.0 / Math.PI);
               }
           }
           return (
