@@ -46,7 +46,7 @@ maven central, add this to the ```<dependencies>``` section of your
     <dependency>
       <groupId>com.github.francesco149</groupId>
       <artifactId>koohii</artifactId>
-      <version>1.2.2</version>
+      <version>2.0.0</version>
     </dependency>
 ```
 
