@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.francesco149</groupId>
 	<artifactId>koohii</artifactId>
-	<version>1.2.3-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>koohii</name>
@@ -118,9 +118,9 @@
 							<goal>wget</goal>
 						</goals>
 						<configuration>
-							<url>https://github.com/Francesco149/oppai-ng/releases/download/2.2.0/test_suite_2019-02-09.tar.gz</url>
+							<url>https://github.com/Francesco149/oppai-ng/releases/download/4.0.0/test_suite_2021-02-03.tar.gz</url>
 							<outputFileName>test_suite.tar.gz</outputFileName>
-							<sha512>e0deaef0b01a7602809748c1b3ee0e8faadd0729b6ace1aa5bc99cf3803fff49eb4ff740975537b0f54714a3d40867a94b357962e359dc859ced51381646ad0d</sha512>
+							<sha512>820de45dd21dfa3c7363e2d4e09ccc20b507d93791cb1f8800381fff95a712dca4b4cae9a92b3ef58dd51b2acd4db5272fd6c29644095b79d3a79803c536178a</sha512>
 							<outputDirectory>${project.build.directory}/generated-test-resources</outputDirectory>
 							<unpack>true</unpack>
 						</configuration>

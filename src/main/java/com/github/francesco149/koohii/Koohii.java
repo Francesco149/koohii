@@ -61,9 +61,9 @@ public final class Koohii {
 
 private Koohii() {}
 
-public final int VERSION_MAJOR = 1;
-public final int VERSION_MINOR = 2;
-public final int VERSION_PATCH = 2;
+public final int VERSION_MAJOR = 2;
+public final int VERSION_MINOR = 0;
+public final int VERSION_PATCH = 0;
 
 /** prints a message to stderr. */
 public static
@@ -1608,13 +1608,13 @@ public static class PPv2
         double accuracy = computed_accuracy.value();
         double real_acc = accuracy;
 
+        /* scorev1 ignores sliders since they are free 300s
+        and for some reason also ignores spinners */
+        int nspinners = nobjects - nsliders - ncircles;
+
         switch (score_version)
         {
         case 1:
-            /* scorev1 ignores sliders since they are free 300s
-            and for some reason also ignores spinners */
-            int nspinners = nobjects - nsliders - ncircles;
-
             real_acc = new Accuracy(n300 - nsliders - nspinners,
                 n100, n50, nmiss).value();
 
@@ -1642,7 +1642,10 @@ public static class PPv2
             length_bonus += Math.log10(nobjects_over_2k) * 0.5;
         }
 
-        double miss_penality = Math.pow(0.97, nmiss);
+        double miss_penality_aim =
+            0.97 * Math.pow(1 - Math.pow((double)nmiss / nobjects, 0.775), nmiss);
+        double miss_penality_speed =
+            0.97 * Math.pow(1 - Math.pow((double)nmiss / nobjects, 0.775), Math.pow(nmiss, 0.875));
         double combo_break = Math.pow(combo, 0.8) /
             Math.pow(max_combo, 0.8);
 
@@ -1653,22 +1656,24 @@ public static class PPv2
         mods_apply(mods, mapstats, APPLY_AR | APPLY_OD);
 
         /* ar bonus -------------------------------------------- */
-        double ar_bonus = 1.0;
+        double ar_bonus = 0.0;
 
         if (mapstats.ar > 10.33) {
-            ar_bonus += 0.3 * (mapstats.ar - 10.33);
+            ar_bonus += 0.4 * (mapstats.ar - 10.33);
         }
 
         else if (mapstats.ar < 8.0) {
-            ar_bonus +=  0.01 * (8.0 - mapstats.ar);
+            ar_bonus +=  0.1 * (8.0 - mapstats.ar);
         }
 
         /* aim pp ---------------------------------------------- */
         aim = pp_base(aim_stars);
         aim *= length_bonus;
-        aim *= miss_penality;
+        if (nmiss > 0) {
+            aim *= miss_penality_aim;
+        }
         aim *= combo_break;
-        aim *= ar_bonus;
+        aim *= 1.0 + Math.min(ar_bonus, ar_bonus * (nobjects / 1000.0));
 
         double hd_bonus = 1.0;
         if ((mods & MODS_HD) != 0) {
@@ -1697,16 +1702,19 @@ public static class PPv2
         /* speed pp -------------------------------------------- */
         speed = pp_base(speed_stars);
         speed *= length_bonus;
-        speed *= miss_penality;
+        if (nmiss > 0) {
+            speed *= miss_penality_speed;
+        }
         speed *= combo_break;
         if (mapstats.ar > 10.33) {
-            speed *= ar_bonus;
+            speed *= 1.0 + Math.min(ar_bonus, ar_bonus * (nobjects / 1000.0));
         }
         speed *= hd_bonus;
 
         /* similar to aim acc and od bonus */
-        speed *= 0.02 + accuracy;
-        speed *= 0.96 + od_squared / 1600.0;
+        speed *= (0.95 + od_squared / 750.0) *
+            Math.pow(accuracy, (14.5 - Math.max(mapstats.od, 8)) / 2);
+        speed *= Math.pow(0.98, n50 < nobjects / 500.0 ? 0.00 : n50 - nobjects / 500.0);
 
         /* acc pp ---------------------------------------------- */
         acc = Math.pow(1.52163, mapstats.od) *
@@ -1726,11 +1734,11 @@ public static class PPv2
         double final_multiplier = 1.12;
 
         if ((mods & MODS_NF) != 0) {
-            final_multiplier *= 0.90;
+            final_multiplier *= Math.max(0.9, 1.0 - 0.2 * nmiss);
         }
 
         if ((mods & MODS_SO) != 0) {
-            final_multiplier *= 0.95;
+            final_multiplier *= 1.0 - Math.pow((double)nspinners / nobjects, 0.85);
         }
 
         total = Math.pow(
