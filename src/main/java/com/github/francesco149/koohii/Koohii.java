@@ -62,7 +62,7 @@ public final class Koohii {
 private Koohii() {}
 
 public final int VERSION_MAJOR = 2;
-public final int VERSION_MINOR = 0;
+public final int VERSION_MINOR = 1;
 public final int VERSION_PATCH = 0;
 
 /** prints a message to stderr. */
@@ -1663,7 +1663,7 @@ public static class PPv2
         }
 
         else if (mapstats.ar < 8.0) {
-            ar_bonus +=  0.1 * (8.0 - mapstats.ar);
+            ar_bonus +=  0.01 * (8.0 - mapstats.ar);
         }
 
         /* aim pp ---------------------------------------------- */
